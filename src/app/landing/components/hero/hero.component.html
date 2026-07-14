@@ -1,0 +1,81 @@
+<section class="hero" id="inicio" aria-label="Presentación de Ayllu">
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">{{ config.brand.tagline }} · {{ config.brand.domain }}</p>
+
+      <h1 class="hero__title">
+        Cobra a tiempo. <span>Sin Excel, sin papeleo,</span> sin dolores de cabeza.
+      </h1>
+
+      <p class="hero__lead">
+        Ayllu digitaliza la gestión de cobros de condominios, edificios e inmuebles en
+        alquiler: conceptos de pago, periodos, recibos y reportes — todo conectado, desde
+        la propiedad hasta cada unidad.
+      </p>
+
+      <div class="hero__actions">
+        <a
+          [href]="config.contact.whatsapp.default"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hero__cta-primary"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.86 14.07c-.25.7-1.45 1.34-2 1.43-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.25-5.04-4.45-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.23.57.35.08.13.08.72-.17 1.42Z"
+            />
+          </svg>
+          Coordinar demo por WhatsApp
+        </a>
+        <a href="#como-funciona" class="hero__cta-secondary">Ver cómo funciona</a>
+      </div>
+
+      <dl class="hero__trust">
+        @for (point of trustPoints; track point.label) {
+          <div class="hero__trust-item">
+            <dt>{{ point.label }}</dt>
+            <dd>{{ point.detail }}</dd>
+          </div>
+        }
+      </dl>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero__frame">
+        <div class="hero__frame-bar">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="hero__frame-body">
+          <!-- <poner imagen: captura del dashboard de Ayllu — vista de Finanzas por bloque/periodo con gráficos> -->
+          <div class="hero__frame-placeholder">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+            <span>Captura del dashboard de Ayllu</span>
+          </div>
+        </div>
+      </div>
+
+      <svg class="hero__nodes" viewBox="0 0 220 220" width="220" height="220">
+        <g fill="none" stroke="var(--ayllu-sky)" stroke-width="1.5" opacity="0.6">
+          <path d="M40 150 L90 100 L150 60 L190 40" />
+        </g>
+        <g class="hero__node hero__node--1">
+          <circle cx="40" cy="150" r="7" fill="var(--ayllu-blue)" />
+        </g>
+        <g class="hero__node hero__node--2">
+          <circle cx="90" cy="100" r="6" fill="var(--ayllu-sky)" />
+        </g>
+        <g class="hero__node hero__node--3">
+          <circle cx="150" cy="60" r="8" fill="var(--ayllu-blue)" />
+        </g>
+        <g class="hero__node hero__node--4">
+          <circle cx="190" cy="40" r="5" fill="var(--ayllu-sky)" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+// ============================================================
+// AYLLU — DESIGN TOKENS
+// Paleta extraída del logo (hexágono + nodo central + red de crecimiento).
+// Importar UNA VEZ en styles.scss global. Los componentes consumen
+// estas variables vía var(--token), no las redeclaran.
+// ============================================================
+
+:root {
+  // ---- Color: núcleo de marca ----
+  --ayllu-blue: #2554eb; // azul primario del logo
+  --ayllu-blue-600: #1c42c7;
+  --ayllu-blue-deep: #0f2a80; // para gradientes profundos
+  --ayllu-sky: #6ea8fe; // acento claro del logo (nodo central)
+  --ayllu-sky-soft: #e4edff;
+
+  // ---- Color: neutrales (fríos, no cálidos) ----
+  --ayllu-ink: #0a1128; // texto/fondo oscuro, casi-negro azulado
+  --ayllu-ink-soft: #141b3d;
+  --ayllu-slate: #5b6478; // texto secundario
+  --ayllu-slate-light: #8791a8;
+  --ayllu-mist: #f4f6fc; // fondo claro general
+  --ayllu-cloud: #ffffff;
+  --ayllu-line: #e3e7f3; // bordes sutiles
+
+  // ---- Color: acción funcional ----
+  // Verde WhatsApp: no es decorativo, es funcional — el CTA principal
+  // literalmente abre WhatsApp, así que el color comunica el canal.
+  --ayllu-action: #22c55e;
+  --ayllu-action-deep: #16a34a;
+
+  // ---- Tipografía ----
+  // Display: Space Grotesk — geometría técnica, remite a la retícula
+  // hexagonal del logo. Body: Manrope — humanista, muy legible.
+  // Mono: JetBrains Mono — para eyebrows, badges y jerarquía de datos
+  // (Property / Block / Unit), coherente con el ADN "sistemas" del producto.
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  // ---- Escala tipográfica ----
+  --fs-h1: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+  --fs-h2: clamp(1.875rem, 3vw + 1rem, 3rem);
+  --fs-h3: clamp(1.25rem, 1.2vw + 1rem, 1.625rem);
+  --fs-lead: clamp(1.0625rem, 0.6vw + 1rem, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.8125rem;
+
+  // ---- Espaciado ----
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --space-7: 7rem;
+
+  // ---- Radios y bordes ----
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+
+  // ---- Sombras ----
+  --shadow-sm: 0 2px 10px rgba(10, 17, 40, 0.06);
+  --shadow-md: 0 12px 32px rgba(10, 17, 40, 0.1);
+  --shadow-glow: 0 0 0 1px rgba(37, 84, 235, 0.08), 0 24px 64px rgba(37, 84, 235, 0.16);
+
+  // ---- Layout ----
+  --container-max: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+// ============================================================
+// Mixins compartidos
+// ============================================================
+@mixin container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+
+  @media (min-width: 768px) {
+    padding-inline: var(--space-5);
+  }
+}
+
+@mixin eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ayllu-blue);
+}
+
+@mixin reveal-base {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// Fondo de retícula hexagonal muy sutil — motivo de marca reutilizado
+// como textura, no como protagonista.
+@mixin hex-grid-bg($opacity: 0.05) {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cg fill='none' stroke='%232554eb' stroke-width='1' opacity='#{$opacity}'%3E%3Cpath d='M28 0L56 16.5V49.5L28 66L0 49.5V16.5Z'/%3E%3Cpath d='M28 66L56 82.5V100'/%3E%3Cpath d='M28 66L0 82.5V100'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}

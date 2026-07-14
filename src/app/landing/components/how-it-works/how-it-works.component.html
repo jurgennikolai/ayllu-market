@@ -1,0 +1,101 @@
+<section class="hiw" id="como-funciona" aria-labelledby="hiw-title">
+  <div class="hiw__inner">
+    <header class="hiw__header" aylluReveal>
+      <p class="hiw__eyebrow">Cómo funciona</p>
+      <h2 id="hiw-title" class="hiw__title">Una jerarquía que se adapta a tu negocio</h2>
+      <p class="hiw__lead">
+        Todo en Ayllu cuelga de tres niveles conectados. La cantidad de bloques y unidades
+        es la que tú necesites, y el nombre de cada nivel cambia según tu rubro.
+      </p>
+    </header>
+
+    <!-- Diagrama de firma: jerarquía animada, cambia de estructura y nomenclatura -->
+    <div class="hiw__diagram-wrap" aylluReveal [aylluRevealDelay]="160">
+     
+          <ul class="hiw__legend" aria-hidden="true">
+            <li>
+              <span class="hiw__legend-dot hiw__legend-dot--property"></span>
+              {{ activeScene().labels[0] }}
+            </li>
+            <li>
+              <span class="hiw__legend-dot hiw__legend-dot--block"></span>
+              {{ activeScene().labels[1] }}
+            </li>
+            <li>
+              <span class="hiw__legend-dot hiw__legend-dot--unit"></span>
+              {{ activeScene().labels[2] }}
+            </li>
+          </ul>
+      <svg
+        class="hiw__diagram"
+        [class.is-switching]="isSwitching()"
+        viewBox="0 0 800 300"
+        role="img"
+        [attr.aria-label]="diagramAriaLabel(activeScene())"
+      >  
+        <g class="hiw__lines" fill="none" stroke="var(--ayllu-sky)" stroke-width="2">
+          @for (e of activeScene().edges; track e.id + '::' + activeScene().id) {
+            <line
+              class="hiw__line"
+              [attr.x1]="e.x1"
+              [attr.y1]="e.y1"
+              [attr.x2]="e.x2"
+              [attr.y2]="e.y2"
+              [style.--dash]="e.length"
+            />
+          }
+        </g>
+
+        @for (n of activeScene().nodes; track n.id + '::' + activeScene().id) {
+          <g class="hiw__node" [attr.data-tier]="n.tier">
+            <polygon
+              [attr.points]="n.points"
+              [class.hiw__hex--property]="n.tier === 'property'"
+              [class.hiw__hex--block]="n.tier === 'block'"
+              [class.hiw__hex--unit]="n.tier === 'unit'"
+            />
+            <circle
+              [attr.cx]="n.cx"
+              [attr.cy]="n.cy"
+              [attr.r]="n.tier === 'property' ? 9 : n.tier === 'block' ? 6.5 : 4.5"
+              [class.hiw__dot--property]="n.tier === 'property'"
+              [class.hiw__dot--block]="n.tier === 'block'"
+              [class.hiw__dot--unit]="n.tier === 'unit'"
+            />
+          </g>
+        }
+      </svg>
+
+      <div class="hiw__diagram-footer">
+  
+        <p class="hiw__caption">{{ activeScene().caption }}</p>
+
+        <div class="hiw__dots" role="group" aria-label="Elegir ejemplo de jerarquía">
+          @for (scene of scenes; track scene.id; let i = $index) {
+            <button
+              type="button"
+              class="hiw__dot-btn"
+              [class.is-active]="i === activeIndex()"
+              [attr.aria-pressed]="i === activeIndex()"
+              [attr.aria-label]="'Ver ejemplo: ' + scene.caption"
+              (click)="goToScene(i)"
+            ></button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Proceso real de 4 pasos -->
+    <ol class="hiw__steps">
+      @for (step of steps; track step.label; let i = $index) {
+        <li class="hiw__step" aylluReveal [aylluRevealDelay]="i * 100">
+          <span class="hiw__step-label">{{ step.label }}</span>
+          <div class="hiw__step-body">
+            <h3 class="hiw__step-title">{{ step.title }}</h3>
+            <p class="hiw__step-text">{{ step.description }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

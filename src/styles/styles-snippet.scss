@@ -1,0 +1,37 @@
+// ============================================================
+// Agrega esto a tu styles.scss GLOBAL existente (no lo reemplaces,
+// solo añade estas líneas). Asume que _tokens.scss vive en
+// src/styles/_tokens.scss como en este paquete.
+// ============================================================
+
+@use 'styles/tokens';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ayllu-ink);
+  background: var(--ayllu-cloud);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Foco visible consistente en toda la landing (accesibilidad)
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ayllu-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

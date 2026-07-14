@@ -1,0 +1,48 @@
+<section class="features" id="funcionalidades" aria-labelledby="features-title">
+  <div class="features__inner">
+    <header class="features__header" aylluReveal>
+      <p class="features__eyebrow">Funcionalidades</p>
+      <h2 id="features-title" class="features__title">Todo lo que hoy haces disperso, en un solo lugar</h2>
+    </header>
+
+    <div class="features__list">
+      @for (group of groups; track group.title; let i = $index) {
+        <article class="features__row" [class.features__row--reverse]="i % 2 === 1" aylluReveal>
+          <div class="features__media" aria-hidden="true">
+            <!-- <poner imagen: {{ group.imageHint }}> -->
+            <div class="features__media-placeholder">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="9" cy="9" r="2" />
+                <path d="m21 15-5-5-9 9" />
+              </svg>
+              <span>{{ group.imageHint }}</span>
+            </div>
+          </div>
+
+          <div class="features__content">
+            <p class="features__group-eyebrow">{{ group.eyebrow }}</p>
+            <h3 class="features__group-title">{{ group.title }}</h3>
+            <ul class="features__bullets">
+              @for (bullet of group.bullets; track bullet) {
+                <li>
+                  <svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true">
+                    <circle cx="10" cy="10" r="9" fill="var(--ayllu-sky-soft)" />
+                    <path
+                      d="m6 10.5 2.5 2.5L14 7.5"
+                      stroke="var(--ayllu-blue)"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>{{ bullet }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

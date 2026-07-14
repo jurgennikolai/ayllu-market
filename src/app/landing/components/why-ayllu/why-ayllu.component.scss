@@ -1,0 +1,139 @@
+@use '../../../../styles/tokens' as t;
+
+:host {
+  display: block;
+}
+
+.why {
+  padding-block: var(--space-7);
+  background: var(--ayllu-cloud);
+
+  &__inner {
+    @include t.container;
+  }
+
+  &__header {
+    max-width: 56ch;
+    margin-bottom: var(--space-5);
+    @include t.reveal-base;
+  }
+
+  &__eyebrow {
+    @include t.eyebrow;
+    margin: 0 0 var(--space-1);
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--ayllu-ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  // ---- Comparación Antes / Con Ayllu ----
+  &__compare {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--ayllu-line);
+    border: 1px solid var(--ayllu-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+    @include t.reveal-base;
+
+    @media (min-width: 720px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__compare-label {
+    display: none;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-3);
+    background: var(--ayllu-mist);
+
+    @media (min-width: 720px) {
+      display: block;
+    }
+
+    &--before {
+      color: var(--ayllu-slate-light);
+    }
+
+    &--after {
+      color: var(--ayllu-blue);
+      background: var(--ayllu-sky-soft);
+    }
+  }
+
+  &__compare-item {
+    margin: 0;
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    background: var(--ayllu-cloud);
+
+    &--before {
+      color: var(--ayllu-slate);
+
+      &::before {
+        content: '— ';
+        color: var(--ayllu-slate-light);
+
+        @media (min-width: 720px) {
+          content: '';
+        }
+      }
+    }
+
+    &--after {
+      color: var(--ayllu-ink);
+      font-weight: 600;
+      background: rgba(37, 84, 235, 0.04);
+
+      &::before {
+        content: '✓ ';
+        color: var(--ayllu-blue);
+      }
+    }
+  }
+
+  // ---- Pilares ----
+  &__pillars {
+    display: grid;
+    gap: var(--space-3);
+
+    @media (min-width: 720px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__pillar {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--ayllu-line);
+    background: var(--ayllu-mist);
+    @include t.reveal-base;
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      color: var(--ayllu-ink);
+      margin: 0 0 0.4rem;
+    }
+
+    p {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--ayllu-slate);
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@use '../../../../styles/tokens' as t;
+
+:host {
+  display: block;
+}
+
+.problem {
+  padding-block: var(--space-7);
+  background: var(--ayllu-cloud);
+
+  &__inner {
+    @include t.container;
+  }
+
+  &__header {
+    max-width: 56ch;
+    margin-bottom: var(--space-5);
+    @include t.reveal-base;
+  }
+
+  &__eyebrow {
+    @include t.eyebrow;
+    margin: 0 0 var(--space-1);
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--ayllu-ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  &__grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1080px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__card {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--ayllu-mist);
+    border: 1px solid var(--ayllu-line);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+    @include t.reveal-base;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(37, 84, 235, 0.25);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: rgba(37, 84, 235, 0.08);
+    color: var(--ayllu-blue);
+    margin-bottom: var(--space-3);
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__card-title {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--ayllu-ink);
+    margin: 0 0 0.4rem;
+  }
+
+  &__card-text {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--ayllu-slate);
+    line-height: 1.5;
+    margin: 0;
+  }
+}

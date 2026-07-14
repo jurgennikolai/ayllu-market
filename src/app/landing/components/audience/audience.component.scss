@@ -1,0 +1,142 @@
+@use '../../../../styles/tokens' as t;
+
+:host {
+  display: block;
+}
+
+.audience {
+  padding-block: var(--space-7);
+  background: var(--ayllu-mist);
+
+  &__inner {
+    @include t.container;
+  }
+
+  &__header {
+    max-width: 56ch;
+    margin-bottom: var(--space-5);
+    @include t.reveal-base;
+  }
+
+  &__eyebrow {
+    @include t.eyebrow;
+    margin: 0 0 var(--space-1);
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--ayllu-ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  &__grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+
+    @media (min-width: 780px) {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4);
+    background: var(--ayllu-cloud);
+    border: 1px solid var(--ayllu-line);
+    border-radius: var(--radius-lg);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    @include t.reveal-base;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    &--featured {
+      background: var(--ayllu-ink);
+      border-color: var(--ayllu-ink);
+
+      @media (min-width: 780px) {
+        padding-block: var(--space-5);
+      }
+
+      .audience__card-title,
+      .audience__card-benefit {
+        color: #fff;
+      }
+
+      .audience__card-pain {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .audience__card-link {
+        color: var(--ayllu-sky);
+      }
+    }
+  }
+
+  &__badge {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ayllu-blue);
+    background: var(--ayllu-sky-soft);
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: var(--space-2);
+  }
+
+  &__card-title {
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    color: var(--ayllu-ink);
+    margin: 0 0 var(--space-2);
+  }
+
+  &__card-pain {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--ayllu-slate);
+    line-height: 1.5;
+    margin: 0 0 0.6rem;
+  }
+
+  &__card-benefit {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ayllu-ink);
+    line-height: 1.5;
+    margin: 0 0 var(--space-3);
+    flex-grow: 1;
+  }
+
+  &__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ayllu-blue);
+    text-decoration: none;
+    width: fit-content;
+
+    svg {
+      transition: transform 0.2s var(--ease);
+    }
+
+    &:hover svg,
+    &:focus-visible svg {
+      transform: translateX(3px);
+    }
+  }
+}

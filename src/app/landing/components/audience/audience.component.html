@@ -1,0 +1,45 @@
+<section class="audience" id="para-quien" aria-labelledby="audience-title">
+  <div class="audience__inner">
+    <header class="audience__header" aylluReveal>
+      <p class="audience__eyebrow">Para quién es Ayllu</p>
+      <h2 id="audience-title" class="audience__title">
+        Cualquier espacio con propietario e inquilino
+      </h2>
+    </header>
+
+    <div class="audience__grid">
+      @for (segment of segments; track segment.title; let i = $index) {
+        <article
+          class="audience__card"
+          [class.audience__card--featured]="segment.featured"
+          aylluReveal
+          [aylluRevealDelay]="i * 90"
+        >
+          @if (segment.featured) {
+            <span class="audience__badge">Caso de uso principal</span>
+          }
+          <h3 class="audience__card-title">{{ segment.title }}</h3>
+          <p class="audience__card-pain">{{ segment.pain }}</p>
+          <p class="audience__card-benefit">{{ segment.benefit }}</p>
+          <a
+            [href]="segment.whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="audience__card-link"
+          >
+            Coordinar demo
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true">
+              <path
+                d="M4 10h12M11 5l5 5-5 5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

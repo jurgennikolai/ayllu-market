@@ -1,0 +1,27 @@
+<section class="why" aria-labelledby="why-title">
+  <div class="why__inner">
+    <header class="why__header" aylluReveal>
+      <p class="why__eyebrow">Por qué Ayllu</p>
+      <h2 id="why-title" class="why__title">No es lo de siempre, con otro logo</h2>
+    </header>
+
+    <div class="why__compare" aylluReveal role="table" aria-label="Comparación entre gestión manual y Ayllu">
+      <span class="why__compare-label why__compare-label--before" role="columnheader">Antes</span>
+      <span class="why__compare-label why__compare-label--after" role="columnheader">Con Ayllu</span>
+
+      @for (item of comparisons; track item.before) {
+        <p class="why__compare-item why__compare-item--before" role="cell">{{ item.before }}</p>
+        <p class="why__compare-item why__compare-item--after" role="cell">{{ item.after }}</p>
+      }
+    </div>
+
+    <div class="why__pillars">
+      @for (pillar of pillars; track pillar.title; let i = $index) {
+        <div class="why__pillar" aylluReveal [aylluRevealDelay]="i * 90">
+          <h3>{{ pillar.title }}</h3>
+          <p>{{ pillar.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

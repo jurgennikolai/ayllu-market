@@ -1,0 +1,33 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img
+        [src]="config.brand.logoPath"
+        [alt]="config.brand.name + ' — ' + config.brand.tagline"
+        class="footer__logo"
+        width="120"
+        height="34"
+      />
+      <p class="footer__tagline">
+        Gestión de cobros para condominios, edificios e inmuebles en alquiler.
+      </p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Enlaces del sitio">
+      @for (item of config.nav; track item.anchor) {
+        <a [href]="'#' + item.anchor">{{ item.label }}</a>
+      }
+    </nav>
+
+    <div class="footer__contact">
+      <a [href]="config.contact.whatsapp.default" target="_blank" rel="noopener noreferrer">
+        {{ config.contact.phoneDisplay }}
+      </a>
+      <span>{{ config.brand.domain }}</span>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>© {{ year }} {{ config.brand.name }}. Todos los derechos reservados.</p>
+  </div>
+</footer>

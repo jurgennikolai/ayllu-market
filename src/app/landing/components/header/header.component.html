@@ -1,0 +1,61 @@
+<header class="header">
+  <div class="header__bar">
+    <a href="#" class="header__brand" (click)="closeMenu()" aria-label="Ayllu — Inicio">
+      <img
+        [src]="config.brand.logoPath"
+        alt="Ayllu — Plataforma de gestión"
+        class="header__logo"
+        width="140"
+        height="40"
+      />
+    </a>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      @for (item of config.nav; track item.anchor) {
+        <a [href]="'#' + item.anchor" class="header__link">{{ item.label }}</a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <a
+        [href]="config.contact.whatsapp.header"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header__cta"
+      >
+        Coordinar demo
+      </a>
+
+      <button
+        type="button"
+        class="header__toggle"
+        [class.is-open]="isMenuOpen()"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="mobile-nav"
+        aria-label="Abrir menú de navegación"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  @if (isMenuOpen()) {
+    <nav id="mobile-nav" class="header__mobile-nav" aria-label="Navegación móvil">
+      @for (item of config.nav; track item.anchor) {
+        <a [href]="'#' + item.anchor" class="header__mobile-link" (click)="closeMenu()">
+          {{ item.label }}
+        </a>
+      }
+      <a
+        [href]="config.contact.whatsapp.header"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header__mobile-cta"
+        (click)="closeMenu()"
+      >
+        Coordinar demo por WhatsApp
+      </a>
+    </nav>
+  }
+</header>
