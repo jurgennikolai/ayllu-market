@@ -4,7 +4,7 @@
  * debe tener el teléfono o los textos de WhatsApp hardcodeados.
  */
 
-const WHATSAPP_PHONE = '51945604546'; // +51 945 604 546, formato internacional sin '+' ni espacios
+const WHATSAPP_PHONE = '51990917655'; // +51 *** *** ***, formato internacional sin '+' ni espacios
 
 function buildWhatsappLink(message: string): string {
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
@@ -18,7 +18,7 @@ export const AYLLU_CONFIG = {
     logoPath: 'assets/images/ayllu-logo.png',
   },
   contact: {
-    phoneDisplay: '+51 945 604 546',
+    phoneDisplay: '+51 990 917 655',
     whatsapp: {
       default: buildWhatsappLink('Hola, quiero coordinar una demo de Ayllu 👋'),
       header: buildWhatsappLink('Hola, me interesa conocer más sobre Ayllu.'),

@@ -5,6 +5,7 @@ interface FeatureGroup {
   eyebrow: string;
   title: string;
   bullets: string[];
+  imagePath: string;
   imageHint: string;
 }
 
@@ -26,6 +27,7 @@ export class FeaturesComponent {
         'Autorrelleno de montos desde periodos anteriores',
         'Publicación de periodo con un clic',
       ],
+      imagePath: 'assets/images/capture-features.png',
       imageHint: 'pantalla de configuración de conceptos y periodos de pago',
     },
     {
@@ -37,6 +39,7 @@ export class FeaturesComponent {
         'Descarga en PDF y registro de cobros recibidos',
         'Entidades bancarias y números de pago configurables',
       ],
+      imagePath: 'assets/images/capture-features-01.png',
       imageHint: 'vista de generación masiva de recibos y notificaciones',
     },
     {
@@ -47,6 +50,7 @@ export class FeaturesComponent {
         'Gráficos listos para presentar en asamblea',
         'Registro y trazabilidad de transacciones',
       ],
+      imagePath: 'assets/images/capture-features-02.png',
       imageHint: 'dashboard de finanzas con gráficos por bloque y periodo',
     },
     {
@@ -57,6 +61,7 @@ export class FeaturesComponent {
         'Acceso propio para propietarios e inquilinos',
         'Trazabilidad de todos los correos y procesos enviados',
       ],
+      imagePath:  'assets/images/capture-features-03.png',
       imageHint: 'panel de administración de usuarios, roles y permisos',
     },
   ];

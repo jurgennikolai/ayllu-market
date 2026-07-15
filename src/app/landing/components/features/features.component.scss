@@ -44,20 +44,29 @@
     @include t.reveal-base;
 
     @media (min-width: 900px) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
+
       gap: var(--space-5);
     }
 
     &--reverse {
       @media (min-width: 900px) {
+
+        grid-template-columns: 0.85fr 1.15fr;
+
         .features__media {
           order: 2;
         }
+
         .features__content {
           order: 1;
         }
       }
     }
+  }
+
+  &__img {
+    height: 29rem;
   }
 
   &__media {
@@ -66,8 +75,8 @@
     background: linear-gradient(150deg, var(--ayllu-sky-soft), var(--ayllu-mist));
     border: 1px solid var(--ayllu-line);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     overflow: hidden;
     position: relative;
 
