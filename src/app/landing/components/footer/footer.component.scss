@@ -27,8 +27,9 @@
   }
 
   &__logo {
-    height: 30px;
-    width: auto;
+    transform: scale(2.8);
+    transform-origin: left center;
+    margin-bottom: 32px;
     filter: brightness(0) invert(1);
     opacity: 0.92;
   }

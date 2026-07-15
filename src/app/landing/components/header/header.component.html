@@ -2,7 +2,7 @@
   <div class="header__bar">
     <a href="#" class="header__brand" (click)="closeMenu()" aria-label="Ayllu — Inicio">
       <img
-        [src]="config.brand.logoPath"
+        [src]="config?.brand?.logoPath"
         alt="Ayllu — Plataforma de gestión"
         class="header__logo"
         width="140"
@@ -17,6 +17,22 @@
     </nav>
 
     <div class="header__actions">
+      <button
+        type="button"
+        class="header__theme-toggle"
+        [class.is-dark]="isDarkMode()"
+        (click)="toggleTheme()"
+        [attr.aria-pressed]="isDarkMode()"
+        [attr.aria-label]="isDarkMode() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
+      >
+        <span class="header__theme-track" aria-hidden="true">
+          <span class="header__theme-thumb"></span>
+        </span>
+        <span class="header__theme-label" aria-hidden="true">
+          {{ isDarkMode() ? 'Oscuro' : 'Claro' }}
+        </span>
+      </button>
+
       <a
         [href]="config.contact.whatsapp.header"
         target="_blank"

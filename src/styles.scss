@@ -1,2 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'styles/tokens';
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--ayllu-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--ayllu-bg);
+  color: var(--ayllu-ink-soft);
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+* {
+  box-sizing: border-box;
+}

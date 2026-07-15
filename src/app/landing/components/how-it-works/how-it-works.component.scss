@@ -28,7 +28,7 @@
   &__title {
     font-family: var(--font-display);
     font-size: var(--fs-h2);
-    color: var(--ayllu-ink);
+    color: var(--ayllu-ink-soft);
     letter-spacing: -0.01em;
     margin: 0 0 var(--space-2);
   }
@@ -86,13 +86,13 @@
   }
 
   &__hex--property {
-    fill: var(--ayllu-sky-soft);
+    fill: var(--ayllu-mist);
     stroke: var(--ayllu-blue);
     stroke-width: 2.5;
   }
 
   &__hex--block {
-    fill: var(--ayllu-mist);
+    fill: var(--ayllu-cloud);
     stroke: var(--ayllu-blue);
     stroke-width: 2.25;
   }
@@ -183,7 +183,7 @@
     font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.875rem;
-    color: var(--ayllu-ink);
+    color: var(--ayllu-ink-soft);
     margin: 0;
     min-width: 180px;
   }
@@ -260,7 +260,7 @@
   &__step-title {
     font-family: var(--font-display);
     font-size: 1.0625rem;
-    color: var(--ayllu-ink);
+    color: var(--ayllu-ink-soft);
     margin: 0 0 0.3rem;
 
     @media (min-width: 780px) {

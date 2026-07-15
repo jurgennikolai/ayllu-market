@@ -21,6 +21,10 @@
   --ayllu-mist: #f4f6fc; // fondo claro general
   --ayllu-cloud: #ffffff;
   --ayllu-line: #e3e7f3; // bordes sutiles
+  --ayllu-bg: #f8faff;
+  --ayllu-surface: #ffffff;
+  --ayllu-surface-muted: #eef3ff;
+  --ayllu-shadow: rgba(10, 17, 40, 0.08);
 
   // ---- Color: acción funcional ----
   // Verde WhatsApp: no es decorativo, es funcional — el CTA principal
@@ -68,6 +72,23 @@
   // ---- Layout ----
   --container-max: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root[data-theme='dark'] {
+  --ayllu-ink:#1a202e;
+  --ayllu-ink-soft: #f9fafd;
+  --ayllu-slate: #c9d5ff;
+  --ayllu-slate-light: #94a3b8;
+  --ayllu-mist: #07111f;
+  --ayllu-cloud: #0f172a;
+  --ayllu-line: rgba(255, 255, 255, 0.16);
+  --ayllu-bg: #030712;
+  --ayllu-surface: #111827;
+  --ayllu-surface-muted: rgba(37, 84, 235, 0.2);
+  --ayllu-shadow: rgba(2, 6, 23, 0.42);
+  --shadow-sm: 0 10px 30px rgba(2, 6, 23, 0.32);
+  --shadow-md: 0 20px 46px rgba(2, 6, 23, 0.4);
+  --shadow-glow: 0 0 0 1px rgba(110, 168, 254, 0.16), 0 24px 70px rgba(2, 6, 23, 0.45);
 }
 
 // ============================================================

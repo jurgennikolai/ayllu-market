@@ -49,7 +49,7 @@
     font-size: var(--fs-h1);
     line-height: 1.05;
     letter-spacing: -0.01em;
-    color: var(--ayllu-ink);
+    color: var(--ayllu-ink-soft);
     margin: 0 0 var(--space-3);
 
     span {
@@ -101,13 +101,14 @@
     font-family: var(--font-body);
     font-weight: 700;
     font-size: 1rem;
-    color: var(--ayllu-ink);
+    color: var(--ayllu-ink-soft);
     padding: 0.95rem 1.4rem;
     border-radius: 999px;
     text-decoration: none;
     border: 1.5px solid var(--ayllu-line);
-    background: rgba(255, 255, 255, 0.6);
-    transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+    background: var(--ayllu-surface);
+    box-shadow: 0 8px 24px var(--ayllu-shadow);
+    transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), background 0.2s var(--ease);
 
     &:hover,
     &:focus-visible {
@@ -139,7 +140,7 @@
       font-family: var(--font-body);
       font-size: 0.9375rem;
       font-weight: 600;
-      color: var(--ayllu-ink);
+      color: var(--ayllu-ink-soft);
       margin: 0;
     }
   }
@@ -153,7 +154,7 @@
   }
 
   &__frame {
-    background: #fff;
+    background: var(--ayllu-surface);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-glow);
     overflow: hidden;
@@ -165,7 +166,7 @@
     display: flex;
     gap: 6px;
     padding: 0.85rem 1rem;
-    background: var(--ayllu-mist);
+    background: var(--ayllu-surface-muted);
     border-bottom: 1px solid var(--ayllu-line);
 
     span {
@@ -182,7 +183,7 @@
     align-items: center;
     justify-content: center;
     background:
-      linear-gradient(135deg, rgba(37, 84, 235, 0.05), rgba(110, 168, 254, 0.1));
+      linear-gradient(135deg, rgba(37, 84, 235, 0.08), rgba(110, 168, 254, 0.14));
   }
 
   &__frame-placeholder {
