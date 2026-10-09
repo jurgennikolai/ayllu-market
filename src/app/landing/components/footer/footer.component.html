@@ -17,6 +17,7 @@
       @for (item of config.nav; track item.anchor) {
         <a [href]="'#' + item.anchor">{{ item.label }}</a>
       }
+      <a routerLink="/privacy-policy">Política de privacidad</a>
     </nav>
 
     <div class="footer__contact">

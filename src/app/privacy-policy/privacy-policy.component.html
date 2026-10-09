@@ -1,0 +1,66 @@
+<main class="policy" lang="en">
+  <div class="policy__inner">
+    <header class="policy__head">
+      <h1 class="policy__title">{{ policy.title }}</h1>
+      <p class="policy__updated">
+        {{ policy.lastUpdatedLabel }}:
+        <time [attr.datetime]="config.lastUpdated">{{ policy.lastUpdatedDate }}</time>
+      </p>
+      <p class="policy__intro">{{ policy.intro }}</p>
+    </header>
+
+    <nav class="policy__toc" [attr.aria-label]="policy.tocLabel">
+      <p class="policy__toc-label">{{ policy.tocLabel }}</p>
+      <ol>
+        @for (section of policy.sections; track section.id) {
+          <li>
+            <!-- `<base href="/">` haría que un `#id` suelto apunte a la landing -->
+            <a [href]="'privacy-policy#' + section.id">{{ section.title }}</a>
+          </li>
+        }
+      </ol>
+    </nav>
+
+    @for (section of policy.sections; track section.id) {
+      <section class="policy__section" [id]="section.id">
+        <h2>{{ section.title }}</h2>
+
+        @for (block of section.blocks; track $index) {
+          @if (block.kind === 'p') {
+            <p>{{ block.text }}</p>
+          } @else {
+            <ul>
+              @for (item of block.items; track $index) {
+                <li>
+                  @if (item.term) {
+                    <strong>{{ item.term }}:</strong>
+                  }
+                  {{ item.text }}
+                </li>
+              }
+            </ul>
+          }
+        }
+
+        @if (section.id === 'controller' && (config.legalName || config.address)) {
+          <dl class="policy__identity">
+            @if (config.legalName) {
+              <dt>Controller</dt>
+              <dd>{{ config.legalName }}</dd>
+            }
+            @if (config.address) {
+              <dt>Address</dt>
+              <dd>{{ config.address }}</dd>
+            }
+          </dl>
+        }
+      </section>
+    }
+
+    <p class="policy__contact">
+      <a [href]="'mailto:' + config.contactEmail">{{ config.contactEmail }}</a>
+    </p>
+  </div>
+</main>
+
+<ayllu-footer />

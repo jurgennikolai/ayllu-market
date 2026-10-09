@@ -1,0 +1,146 @@
+@use '../../styles/tokens' as t;
+
+:host {
+  display: block;
+}
+
+.policy {
+  padding-block: var(--space-6) var(--space-7);
+  background: var(--ayllu-bg);
+  @include t.hex-grid-bg(0.04);
+
+  &__inner {
+    @include t.container;
+    max-width: 860px;
+  }
+
+  &__head {
+    margin-bottom: var(--space-5);
+  }
+
+  &__title {
+    margin: 0 0 var(--space-1);
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    line-height: 1.1;
+    color: var(--ayllu-ink-soft);
+  }
+
+  &__updated {
+    @include t.eyebrow;
+    margin: 0 0 var(--space-3);
+  }
+
+  &__intro {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-lead);
+    line-height: 1.6;
+    color: var(--ayllu-slate);
+  }
+
+  &__toc {
+    margin-bottom: var(--space-5);
+    padding: var(--space-3);
+    border: 1px solid var(--ayllu-line);
+    border-radius: var(--radius-md);
+    background: var(--ayllu-surface);
+    box-shadow: var(--shadow-sm);
+
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+
+      @media (min-width: 680px) {
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--space-3);
+      }
+    }
+
+    a {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      color: var(--ayllu-blue);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__toc-label {
+    @include t.eyebrow;
+    margin: 0 0 var(--space-2);
+  }
+
+  &__section {
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--ayllu-line);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    color: var(--ayllu-ink-soft);
+
+    h2 {
+      margin: 0 0 var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0 0 var(--space-2);
+    }
+
+    ul {
+      margin: 0 0 var(--space-2);
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  &__identity {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem var(--space-2);
+    margin: 0;
+
+    dt {
+      font-weight: 700;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  &__contact {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-mono);
+
+    a {
+      color: var(--ayllu-blue);
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+// En modo oscuro el azul primario pierde contraste sobre superficies oscuras.
+:host-context([data-theme='dark']) {
+  .policy__toc a,
+  .policy__contact a,
+  .policy__updated,
+  .policy__toc-label {
+    color: var(--ayllu-sky);
+  }
+}
